@@ -1,7 +1,3 @@
-> #### ANNOUNCEMENTS
-> ##### Use files in `headeronly_src` directory. The files in `src` are exactly same but in the form of h/cpp files, which you need to compile and link with.
-> ##### `boost_src` is no longer maintained. Do not use unless you need to use pre-c++1x. It requires `boost` library.
-
 sqlite3pp
 =========
 
@@ -102,7 +98,7 @@ for (sqlite3pp::query::iterator i = qry.begin(); i != qry.end(); ++i) {
 for (sqlite3pp::query::iterator i = qry.begin(); i != qry.end(); ++i) {
   int id;
   char const* name, *phone;
-  std::tie(id, name, phone) =
+  eastl::tie(id, name, phone) =
     (*i).get_columns<int, char const*, char const*>(0, 1, 2);
   cout << id << "\t" << name << "\t" << phone << endl;
 }
