@@ -14,6 +14,13 @@ With ext::function class, it's also easy to use the sqlite3's functions and aggr
 ## database
 ```cpp
 sqlite3pp::database db("test.db");
+db.execute("DROP TABLE IF EXISTS contacts;");
+db.execute(R"(
+   CREATE TABLE contacts (
+      name TEXT NOT NULL,
+       phone TEXT NOT NULL
+   );
+)");
 db.execute("INSERT INTO contacts (name, phone) VALUES ('Mike', '555-1234')");
 ```
 
